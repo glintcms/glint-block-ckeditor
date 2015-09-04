@@ -1,0 +1,35 @@
+{
+  "name": "glint-block-ckeditor",
+  "version": "1.0.0",
+  "description": "CKEditor Block",
+  "main": "server.js",
+  "browser": "browser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/glintcms/glint-block-ckeditor"
+  },
+  "keywords": [
+    "editable",
+    "contenteditable",
+    "inline",
+    "editable",
+    "text",
+    "glint",
+    "block",
+    "ckeditor"
+  ],
+  "author": "Andi Neck",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/glintcms/glint-block-ckeditor/issues"
+  },
+  "homepage": "https://github.com/glintcms/glint-block-ckeditor",
+  "dependencies": {
+    "inherits": "^2.0.1",
+    "load-script": "^1.0.0",
+    "utils-merge": "^1.0.0"
+  }
+}
