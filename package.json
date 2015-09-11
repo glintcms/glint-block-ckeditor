@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/glintcms/glint-block-ckeditor",
   "dependencies": {
+    "debug": "^2.2.0",
     "inherits": "^2.0.1",
     "load-script": "^1.0.0",
     "utils-merge": "^1.0.0"
