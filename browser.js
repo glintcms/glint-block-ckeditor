@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-var debug = require('debug')('glint:ckeditor');
+var debug = require('debug')('glint-block-ckeditor');
 var merge = require('utils-merge');
 var load = require('load-script');
 var inherits = require('inherits');
