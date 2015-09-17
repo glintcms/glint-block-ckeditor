@@ -2,6 +2,8 @@
  * Module dependencies.
  */
 var debug = require('debug')('glint-block-ckeditor');
+var developer = require('debug').enabled('glint-block-ckeditor');
+var defaults = require('defaults');
 var merge = require('utils-merge');
 var load = require('load-script');
 var inherits = require('inherits');
@@ -96,9 +98,26 @@ CKEditorBlock.prototype.save = function() {
 
 CKEditorBlock.prototype.defaults = function() {
   this.path = this.path || '/assets/glint-block-ckeditor/ckeditor.js';
-  this.config = this.config || {
-    //extraPlugins: 'devtools',
-    'language': 'en',
+
+  var language = (window.context && context.i18n && context.i18n.locale) ? context.i18n.locale : 'en';
+  var add = ['sourcedialog'];
+  var remove = [];
+
+  // enable devtools (show ckeditor variable names dialog), if debug set for 'glint-block-ckeditor'
+  if (developer) {
+    add.push('devtools');
+  } else {
+    remove.push('devtools');
+  }
+  var removePlugins = remove.join(',');
+  var extraPlugins = add.join(',');
+
+  this.config = defaults(this.config, {
+
+    removePlugins: removePlugins,
+    extraPlugins: extraPlugins,
+
+    language: language,
 
     // http://docs.ckeditor.com/#!/guide/dev_file_browse_upload
     filebrowserBrowseUrl: '/filemanager' + location.pathname,
@@ -110,7 +129,8 @@ CKEditorBlock.prototype.defaults = function() {
     filebrowserImageWindowWidth: '640',
     filebrowserImageWindowHeight: '480'
 
-  };
+  });
+
 };
 
 CKEditorBlock.prototype.initialize = function() {
@@ -150,7 +170,7 @@ CKEditorBlock.prototype.close = function() {
   } catch (e) {
    debug('close (destroy) error', e);
   }
-}
+};
 
 CKEditorBlock.prototype.getContent = function() {
   return this.el.innerHTML;
