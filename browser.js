@@ -35,6 +35,7 @@ CKEditorBlock.prototype.load = function(content) {
   if (!content) return;
   this.content = content;
   this.setContent(this.content);
+  if (this.ckeditor) this.close();
   return this.content;
 };
 
