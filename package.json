@@ -1,6 +1,6 @@
 {
   "name": "glint-block-ckeditor",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "CKEditor Block",
   "main": "server.js",
   "browser": "browser.js",
